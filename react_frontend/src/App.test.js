@@ -1,8 +1,11 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
+test("renders portfolio navigation and key sections", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByRole("navigation", { name: /primary navigation/i })).toBeInTheDocument();
+  expect(screen.getByRole("heading", { name: /resume/i })).toBeInTheDocument();
+  expect(screen.getByRole("heading", { name: /experience/i })).toBeInTheDocument();
+  expect(screen.getByRole("heading", { name: /projects/i })).toBeInTheDocument();
+  expect(screen.getByRole("heading", { name: /contact/i })).toBeInTheDocument();
 });
